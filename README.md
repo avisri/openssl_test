@@ -15,6 +15,7 @@ sudo /usr/local/ssltest/ssltest.out
 ##Uninstall/ Remove  
 sudo rm -rf /usr/local/ssltest
 
+##Notes
 *Note: ensure you have the proper xcode and brew ssl libs insstalled 
 
 ```
