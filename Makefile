@@ -1,18 +1,20 @@
 IDIR =include
 CC=gcc
-CFLAGS=-I$(IDIR)
+CFLAGS=-I$(IDIR) -I/usr/local/opt/openssl/include
 
 ODIR=obj
 LDIR =lib
 
-LIBS=-lm
+LIBS=-lm -L/usr/local/opt/openssl/lib -L$(LDIR) -lssl -lcrypto
 
 _DEPS = ssltest.h
 DEPS = $(patsubst %,$(IDIR)/%,$(_DEPS))
 
-_OBJ = ssltest.o ssltestfunc.o 
+_OBJ = ssltest.o createsoc.o
 OBJ = $(patsubst %,$(ODIR)/%,$(_OBJ))
 
+ssltest.out : $(OBJ)
+		$(CC) $(CFLAGS) $(LIBS)  $(OBJ) -o ssltest.out
 
 $(ODIR)/%.o: src/%.c $(DEPS)
 		$(CC) -c -o $@ $< $(CFLAGS)
