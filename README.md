@@ -1,20 +1,26 @@
 # openssl_test
 
 ##optional 
+```
 chown -R  $(whoami):admin /usr/local 
 xcode-select --install
 brew install openssl
+```
 
 ##To compile and install and run
+
+```
 make clean
 make
 sudo mkdir /var/ssltest/ 
 sudo cp ssltest.out /usr/local/ssltest
 sudo /usr/local/ssltest/ssltest.out 
+```
 
 ##Uninstall/ Remove  
+```
 sudo rm -rf /usr/local/ssltest
-
+```
 ##Notes
 *Note: ensure you have the proper xcode and brew ssl libs insstalled 
 
